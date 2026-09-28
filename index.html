@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'">
+<title>OUTGEAR — гаджеты для активного отдыха</title>
+<meta name="description" content="OUTGEAR — интернет-магазин гаджетов для активного отдыха: налобные фонари, GPS-навигаторы, портативные зарядные устройства, мультитулы и экипировка для похода.">
+<meta name="keywords" content="гаджеты для активного отдыха, туристическое снаряжение, купить фонарь, GPS навигатор, повербанк, мультитул, экшн камера">
+<link rel="canonical" href="https://outgear.example/">
+<meta property="og:title" content="OUTGEAR — гаджеты для активного отдыха">
+<meta property="og:description" content="Проверенная техника для похода, треккинга и путешествий.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F1E7;
+    --ink:#1C1B17;
+    --forest:#1F3B2C;
+    --forest-dk:#152A20;
+    --amber:#DE7A2C;
+    --stone:#8D8676;
+    --card:#FFFFFF;
+    --line:rgba(28,27,23,0.12);
+    --radius:2px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:76px;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Work Sans',system-ui,sans-serif;
+    font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:900; line-height:0.92; letter-spacing:0.2px;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:2px;}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,241,231,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .logo{font-family:'Big Shoulders Display';font-weight:900;font-size:26px;letter-spacing:0.5px;display:flex;align-items:center;gap:8px;}
+  .logo .dot{color:var(--amber);}
+  nav.links{display:flex;gap:34px;align-items:center;}
+  nav.links a{font-size:15px;font-weight:500;color:var(--forest-dk);position:relative;padding:4px 0;}
+  nav.links a:hover{color:var(--amber);}
+  .nav-actions{display:flex;align-items:center;gap:18px;}
+  .cart-btn{position:relative;display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:9px 16px;border:1px solid var(--ink);border-radius:var(--radius);}
+  .cart-btn:hover{background:var(--ink);color:var(--bg);}
+  .cart-count{position:absolute;top:-8px;right:-8px;background:var(--amber);color:#fff;font-size:11px;font-weight:700;min-width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .burger{display:none;flex-direction:column;gap:5px;width:26px;}
+  .burger span{height:2px;background:var(--ink);display:block;}
+  .mobile-menu{display:none;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{padding:14px 28px;border-bottom:1px solid var(--line);font-weight:500;}
+
+  /* HERO */
+  .hero{padding:76px 0 84px;}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;}
+  .eyebrow-line{display:flex;align-items:center;gap:10px;color:var(--forest);font-weight:600;font-size:13.5px;margin-bottom:18px;}
+  .eyebrow-line .bar{width:28px;height:2px;background:var(--amber);}
+  .hero h1{font-size:clamp(46px,6vw,78px);}
+  .hero h1 em{font-style:normal;color:var(--forest);}
+  .hero p.lead{margin-top:22px;max-width:46ch;color:#4a4739;font-size:17px;}
+  .hero-cta{display:flex;gap:14px;margin-top:34px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;font-weight:600;font-size:15px;border-radius:var(--radius);}
+  .btn-primary{background:var(--forest);color:#fff;}
+  .btn-primary:hover{background:var(--forest-dk);}
+  .btn-outline{border:1px solid var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:#fff;}
+  .hero-stats{display:flex;gap:34px;margin-top:46px;}
+  .hero-stats div{border-left:2px solid var(--line);padding-left:14px;}
+  .hero-stats b{font-family:'Big Shoulders Display';font-size:30px;display:block;color:var(--forest);}
+  .hero-stats span{font-size:12.5px;color:var(--stone);}
+
+  .hero-card{background:var(--forest);color:#fff;border-radius:6px;padding:34px;position:relative;overflow:hidden;}
+  .hero-card .tag{display:inline-block;background:var(--amber);color:#fff;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:3px;letter-spacing:0.4px;}
+  .hero-card h3{font-size:34px;margin-top:16px;color:#fff;}
+  .hero-card p{color:rgba(255,255,255,0.72);margin-top:8px;font-size:14.5px;max-width:32ch;}
+  .hero-card .price-row{display:flex;align-items:baseline;gap:10px;margin-top:26px;}
+  .hero-card .price{font-family:'Big Shoulders Display';font-size:40px;}
+  .hero-card .old{color:rgba(255,255,255,0.5);text-decoration:line-through;font-size:16px;}
+  .hero-icon{position:absolute;right:-10px;bottom:-10px;opacity:0.18;width:170px;height:170px;}
+
+  /* SECTION LABELS */
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:38px;gap:20px;flex-wrap:wrap;}
+  .sec-head h2{font-size:clamp(30px,3.6vw,44px);}
+  .sec-head p{max-width:40ch;color:var(--stone);font-size:14.5px;}
+  section{padding:64px 0;}
+  .section-alt{background:#EEE9DB;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .about-card{background:var(--card);border:1px solid var(--line);padding:26px;border-radius:4px;}
+  .about-card .n{font-family:'Big Shoulders Display';font-size:38px;color:var(--amber);}
+  .about-card h4{font-size:17px;margin:10px 0 8px;font-weight:600;}
+  .about-card p{font-size:14px;color:#57543f;}
+
+  /* CATALOG */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px;}
+  .filter-btn{padding:9px 18px;border:1px solid var(--ink);border-radius:20px;font-size:13.5px;font-weight:500;}
+  .filter-btn.active{background:var(--forest);color:#fff;border-color:var(--forest);}
+  .filter-btn:not(.active):hover{border-color:var(--amber);}
+  .catalog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .product{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease, box-shadow .15s ease;}
+  .product:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(28,27,23,0.08);}
+  .product .thumb{aspect-ratio:1/0.82;background:var(--forest);display:flex;align-items:center;justify-content:center;position:relative;}
+  .product .thumb svg{width:56%;height:56%;color:rgba(255,255,255,0.92);}
+  .product .cat-tag{position:absolute;top:10px;left:10px;background:rgba(255,255,255,0.9);color:var(--forest-dk);font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:3px;}
+  .product .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .product h4{font-size:16px;font-weight:600;}
+  .product .desc{font-size:12.5px;color:var(--stone);flex:1;}
+  .product .price-add{display:flex;align-items:center;justify-content:space-between;margin-top:6px;}
+  .product .price{font-family:'Big Shoulders Display';font-size:22px;color:var(--forest);}
+  .add-btn{background:var(--ink);color:#fff;font-size:12.5px;font-weight:600;padding:9px 14px;border-radius:3px;}
+  .add-btn:hover{background:var(--amber);}
+
+  /* FEATURES */
+  .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .feature{padding:8px 0;}
+  .feature svg{width:34px;height:34px;color:var(--amber);margin-bottom:14px;}
+  .feature h4{font-size:16.5px;font-weight:600;margin-bottom:6px;}
+  .feature p{font-size:13.5px;color:var(--stone);}
+
+  /* CONTACT / FOOTER */
+  footer{background:var(--forest-dk);color:#EFE9DA;padding:64px 0 28px;}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.12);}
+  footer h3{color:#fff;font-size:26px;}
+  footer p{color:rgba(239,233,218,0.65);font-size:14px;margin-top:12px;max-width:36ch;}
+  footer h5{font-size:13px;text-transform:none;font-weight:600;color:#fff;margin-bottom:14px;}
+  footer .flist{display:flex;flex-direction:column;gap:10px;font-size:14px;color:rgba(239,233,218,0.75);}
+  footer .flist a:hover{color:var(--amber);}
+  .foot-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:12.5px;color:rgba(239,233,218,0.5);flex-wrap:wrap;gap:10px;}
+
+  /* CART DRAWER */
+  .overlay{position:fixed;inset:0;background:rgba(21,42,32,0.45);opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:90;}
+  .overlay.show{opacity:1;pointer-events:auto;}
+  .drawer{position:fixed;top:0;right:0;height:100%;width:400px;max-width:92vw;background:#fff;z-index:91;transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);}
+  .drawer.show{transform:translateX(0);}
+  .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:22px 22px;border-bottom:1px solid var(--line);}
+  .drawer-head h3{font-size:24px;}
+  .close-btn{font-size:26px;line-height:1;color:var(--stone);}
+  .cart-items{flex:1;overflow-y:auto;padding:14px 22px;}
+  .cart-row{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .cart-row .ic{width:46px;height:46px;background:var(--forest);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .cart-row .ic svg{width:24px;height:24px;color:#fff;}
+  .cart-row .info{flex:1;}
+  .cart-row .info h5{font-size:14px;font-weight:600;}
+  .cart-row .info .p{font-size:13px;color:var(--stone);margin-top:2px;}
+  .qty{display:flex;align-items:center;gap:8px;}
+  .qty button{width:22px;height:22px;border:1px solid var(--line);border-radius:3px;font-size:14px;}
+  .rm-btn{color:var(--stone);font-size:12px;margin-left:8px;text-decoration:underline;}
+  .cart-empty{text-align:center;color:var(--stone);padding:60px 10px;font-size:14px;}
+  .drawer-foot{padding:20px 22px;border-top:1px solid var(--line);}
+  .drawer-foot .total-row{display:flex;justify-content:space-between;font-weight:600;font-size:16px;margin-bottom:14px;}
+  .drawer-foot .btn-primary{width:100%;justify-content:center;}
+
+  /* CHECKOUT MODAL */
+  .modal-overlay{position:fixed;inset:0;background:rgba(21,42,32,0.55);z-index:95;display:none;align-items:center;justify-content:center;padding:20px;}
+  .modal-overlay.show{display:flex;}
+  .modal{background:#fff;border-radius:6px;max-width:440px;width:100%;padding:30px;max-height:90vh;overflow-y:auto;}
+  .modal h3{font-size:26px;margin-bottom:6px;}
+  .modal .sub{color:var(--stone);font-size:13.5px;margin-bottom:22px;}
+  .pay-options{display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+  .pay-opt{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:4px;padding:13px 14px;font-size:14.5px;font-weight:500;}
+  .pay-opt input{accent-color:var(--forest);width:16px;height:16px;}
+  .pay-opt.selected{border-color:var(--forest);background:#F5F1E7;}
+  .field{margin-bottom:14px;}
+  .field label{font-size:12.5px;font-weight:600;display:block;margin-bottom:6px;}
+  .field input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:4px;font-family:inherit;font-size:14px;}
+  .field input:focus{border-color:var(--forest);}
+  .modal .btn-primary{width:100%;justify-content:center;margin-top:6px;}
+
+  /* TOAST */
+  .toast{position:fixed;bottom:26px;right:26px;background:var(--forest);color:#fff;padding:14px 20px;border-radius:4px;font-size:13.5px;font-weight:600;letter-spacing:0.3px;display:flex;align-items:center;gap:10px;transform:translateY(20px);opacity:0;pointer-events:none;transition:all .25s ease;z-index:99;}
+  .toast.show{transform:translateY(0);opacity:1;}
+  .toast svg{width:18px;height:18px;color:var(--amber);}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr 1fr;}
+    .catalog-grid{grid-template-columns:1fr 1fr;}
+    .features-grid{grid-template-columns:1fr 1fr;}
+    .foot-grid{grid-template-columns:1fr;gap:28px;}
+    nav.links{display:none;}
+    .burger{display:flex;}
+  }
+  @media(max-width:520px){
+    .about-grid{grid-template-columns:1fr;}
+    .catalog-grid{grid-template-columns:1fr;}
+    .features-grid{grid-template-columns:1fr;}
+    .hero-stats{flex-wrap:wrap;row-gap:16px;}
+    .wrap{padding:0 18px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <a href="#top" class="logo" id="logoHome">OUTGEAR<span class="dot">.</span></a>
+    <nav class="links" aria-label="Основная навигация">
+      <a href="#about">О нас</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#features">Преимущества</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="cart-btn" id="cartOpenBtn" aria-label="Открыть корзину">
+        Корзина <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">О нас</a>
+    <a href="#catalog">Каталог</a>
+    <a href="#features">Преимущества</a>
+    <a href="#contacts">Контакты</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="about" aria-label="Главный экран">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow-line"><span class="bar"></span>Снаряжение, проверенное тропой</div>
+        <h1>Техника<br>для <em>активного</em><br>отдыха</h1>
+        <p class="lead">Компактные и надёжные гаджеты для похода, треккинга и путешествий — свет, навигация, питание и связь там, где нет розетки.</p>
+        <div class="hero-cta">
+          <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
+          <a href="#features" class="btn btn-outline">Почему мы</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>10</b><span>моделей в каталоге</span></div>
+          <div><b>72ч</b><span>средняя автономность</span></div>
+          <div><b>IP67</b><span>защита от воды и пыли</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="tag">Хит продаж</span>
+        <h3>SolarCharge 20000</h3>
+        <p>Солнечная powerbank-батарея с быстрой зарядкой для смартфона, навигатора и экшн-камеры в дороге.</p>
+        <div class="price-row"><span class="price">4 990 ₽</span><span class="old">5 990 ₽</span></div>
+        <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 2h10l-2 9h4l-9 11 1.5-8H7z"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Снаряжение<br>для любых условий</h2>
+        <p>Каждый гаджет протестирован в полевых условиях: дождь, холод, автономность вдали от цивилизации.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card"><div class="n">01</div><h4>Отбор моделей</h4><p>В каталог попадают только устройства с реальным ресурсом автономной работы и защитой корпуса от влаги и ударов.</p></div>
+        <div class="about-card"><div class="n">02</div><h4>Честные характеристики</h4><p>Указываем время работы, вес и материал корпуса без маркетинговых округлений — по данным собственных тестов.</p></div>
+        <div class="about-card"><div class="n">03</div><h4>Быстрая доставка</h4><p>Отправляем по России в течение суток, чтобы гаджет успел на тропу до вашего похода.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalog">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Каталог гаджетов</h2>
+        <p>Отфильтруйте по назначению — от освещения до автономного питания.</p>
+      </div>
+      <div class="filters" id="filters" role="tablist" aria-label="Фильтр каталога по категориям"></div>
+      <div class="catalog-grid" id="catalogGrid"></div>
+    </div>
+  </section>
+
+  <section class="section-alt" id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Почему выбирают OUTGEAR</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4.2L18.5 21 12 16.8 5.5 21l2-7.8L2 9h7z"/></svg>
+          <h4>Гарантия 24 месяца</h4><p>Официальная гарантия на всю технику каталога с бесплатной заменой брака.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+          <h4>Проверено в поле</h4><p>Каждая модель проходит тест в реальном походе перед добавлением в каталог.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M8 6V4h8v2"/></svg>
+          <h4>Доставка за 24 часа</h4><p>Отправка день в день по будням, курьером или в пункт выдачи.</p>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9C0.7 8 2 4 6 4c2 0 3.5 1.2 4 2 0.5-.8 2-2 4-2 4 0 5.3 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg>
+          <h4>Поддержка 24/7</h4><p>Ответим на вопрос о совместимости и работе гаджета в любое время суток.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacts">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>OUTGEAR<span style="color:var(--amber)">.</span></h3>
+        <p>Гаджеты для активного отдыха: свет, навигация, питание и экипировка для похода — в одном каталоге.</p>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <div class="flist">
+          <a href="mailto:upro8890@gmail.com">upro8890@gmail.com</a>
+          <a href="tel:+79779474213">+7 (977) 947-42-13</a>
+          <span>г. Москва, ул. Домодедовская, 24к7</span>
+        </div>
+      </div>
+      <div>
+        <h5>Магазин</h5>
+        <div class="flist">
+          <a href="#catalog">Каталог</a>
+          <a href="#features">Преимущества</a>
+          <a href="#about">О нас</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 OUTGEAR. Учебный проект.</span>
+      <span>Оплата: карта, СБП, наличные при получении</span>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="cartDrawer" aria-label="Корзина" role="dialog" aria-modal="true">
+  <div class="drawer-head">
+    <h3>Корзина</h3>
+    <button class="close-btn" id="cartCloseBtn" aria-label="Закрыть корзину">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>Итого</span><span id="cartTotal">0 ₽</span></div>
+    <button class="btn btn-primary" id="checkoutBtn">Оформить заказ</button>
+  </div>
+</aside>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Оформление заказа">
+    <h3>Оформление заказа</h3>
+    <p class="sub">Выберите способ оплаты и укажите контакты</p>
+    <div class="pay-options" id="payOptions">
+      <label class="pay-opt selected"><input type="radio" name="pay" value="card" checked>Банковская карта</label>
+      <label class="pay-opt"><input type="radio" name="pay" value="sbp">СБП (быстрый платёж)</label>
+      <label class="pay-opt"><input type="radio" name="pay" value="cash">Наличными при получении</label>
+    </div>
+    <div class="field"><label for="fName">Имя</label><input id="fName" type="text" placeholder="Как к вам обращаться"></div>
+    <div class="field"><label for="fPhone">Телефон</label><input id="fPhone" type="tel" placeholder="+7 ("></div>
+    <button class="btn btn-primary" id="confirmOrderBtn">Подтвердить заказ · <span id="modalTotal">0 ₽</span></button>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastText">Добавлено в корзину</span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- sanitize: защита от XSS при вставке текста через innerHTML ---- */
+  function sanitize(str){
+    return String(str).replace(/[&<>"']/g, function(ch){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
+    });
+  }
+
+  var ICONS = {
+    light:'<path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1v.2h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/>',
+    nav:'<circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M15 9l-2 6-6 2 2-6z"/>',
+    power:'<path d="M7 2h10l-2 9h4l-9 11 1.5-8H7z"/>',
+    tool:'<path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L14.7 6.3z"/>',
+    kit:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/>'
+  };
+
+  /* ---- reactive store (упрощённый) ---- */
+  var state = { filter:'all', cart:{} };
+  var listeners = [];
+  function setState(patch){ Object.assign(state, patch); listeners.forEach(function(fn){ fn(state); }); }
+  function subscribe(fn){ listeners.push(fn); }
+
+  var PRODUCTS = [
+    {id:'p1', name:'Налобный фонарь Trek Pro 300', cat:'light', catLabel:'Свет', price:2490, desc:'300 лм, IPX6, до 40 ч работы от USB-C аккумулятора.'},
+    {id:'p2', name:'Тактический фонарь SideLight Mini', cat:'light', catLabel:'Свет', price:1590, desc:'Компактный ручной фонарь с magnet-креплением на пояс.'},
+    {id:'p3', name:'GPS-навигатор Trail Compass X', cat:'nav', catLabel:'Навигация', price:8990, desc:'Офлайн-карты, барометр и трек-логгер до 20 ч в поле.'},
+    {id:'p4', name:'Часы-навигатор SummitWatch', cat:'nav', catLabel:'Навигация', price:6490, desc:'GPS, высотомер и пульсометр в защищённом корпусе.'},
+    {id:'p5', name:'SolarCharge 20000', cat:'power', catLabel:'Питание', price:4990, desc:'Солнечная батарея 20000 мАч с быстрой зарядкой 22.5 Вт.'},
+    {id:'p6', name:'Повербанк TrailCell 10000', cat:'power', catLabel:'Питание', price:2290, desc:'Лёгкий повербанк 10000 мАч, вес 180 г, USB-C PD.'},
+    {id:'p7', name:'Мультитул Ranger 12-in-1', cat:'tool', catLabel:'Мультитулы', price:3290, desc:'12 функций в одном корпусе из нержавеющей стали.'},
+    {id:'p8', name:'Компактная горелка TrailFire Mini', cat:'tool', catLabel:'Мультитулы', price:1990, desc:'Складная газовая горелка весом 85 г для похода.'},
+    {id:'p9', name:'Экшн-камера ActiveCam 4K', cat:'kit', catLabel:'Экипировка', price:7490, desc:'Съёмка 4K/60fps, стабилизация, защита от воды до 10 м.'},
+    {id:'p10', name:'Фильтр для воды AquaPure Straw', cat:'kit', catLabel:'Экипировка', price:1290, desc:'Очистка воды прямо из источника, ресурс 1000 л.'}
+  ];
+  var CATS = [
+    {id:'all', label:'Все'},
+    {id:'light', label:'Свет'},
+    {id:'nav', label:'Навигация'},
+    {id:'power', label:'Питание'},
+    {id:'tool', label:'Мультитулы'},
+    {id:'kit', label:'Экипировка'}
+  ];
+
+  var filtersEl = document.getElementById('filters');
+  CATS.forEach(function(c){
+    var b = document.createElement('button');
+    b.className = 'filter-btn' + (c.id==='all' ? ' active' : '');
+    b.textContent = c.label;
+    b.setAttribute('role','tab');
+    b.setAttribute('aria-selected', c.id==='all' ? 'true':'false');
+    b.addEventListener('click', function(){ setState({filter:c.id}); });
+    b.dataset.cat = c.id;
+    filtersEl.appendChild(b);
+  });
+
+  var grid = document.getElementById('catalogGrid');
+  function renderCatalog(){
+    var list = state.filter === 'all' ? PRODUCTS : PRODUCTS.filter(function(p){ return p.cat === state.filter; });
+    grid.innerHTML = list.map(function(p){
+      return '<article class="product">' +
+        '<div class="thumb"><span class="cat-tag">'+sanitize(p.catLabel)+'</span>' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">'+ICONS[p.cat]+'</svg></div>' +
+        '<div class="body">' +
+          '<h4>'+sanitize(p.name)+'</h4>' +
+          '<p class="desc">'+sanitize(p.desc)+'</p>' +
+          '<div class="price-add"><span class="price">'+p.price.toLocaleString('ru-RU')+' ₽</span>' +
+          '<button class="add-btn" data-id="'+p.id+'">В корзину</button></div>' +
+        '</div></article>';
+    }).join('');
+    document.querySelectorAll('.filter-btn').forEach(function(b){
+      var on = b.dataset.cat === state.filter;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-selected', on ? 'true':'false');
+    });
+    grid.querySelectorAll('.add-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ addToCart(btn.dataset.id); });
+    });
+  }
+
+  function addToCart(id){
+    var cart = Object.assign({}, state.cart);
+    cart[id] = (cart[id] || 0) + 1;
+    setState({cart:cart});
+    showToast('Добавлено в корзину');
+  }
+  function changeQty(id, delta){
+    var cart = Object.assign({}, state.cart);
+    cart[id] = (cart[id] || 0) + delta;
+    if(cart[id] <= 0) delete cart[id];
+    setState({cart:cart});
+  }
+
+  var cartCountEl = document.getElementById('cartCount');
+  var cartItemsEl = document.getElementById('cartItems');
+  var cartTotalEl = document.getElementById('cartTotal');
+  var modalTotalEl = document.getElementById('modalTotal');
+
+  function cartLines(){
+    return Object.keys(state.cart).map(function(id){
+      var p = PRODUCTS.filter(function(x){ return x.id === id; })[0];
+      return {p:p, qty:state.cart[id]};
+    }).filter(function(l){ return l.p; });
+  }
+
+  function renderCart(){
+    var lines = cartLines();
+    var totalQty = lines.reduce(function(s,l){ return s + l.qty; }, 0);
+    var totalPrice = lines.reduce(function(s,l){ return s + l.qty * l.p.price; }, 0);
+    cartCountEl.textContent = totalQty;
+    cartTotalEl.textContent = totalPrice.toLocaleString('ru-RU') + ' ₽';
+    modalTotalEl.textContent = totalPrice.toLocaleString('ru-RU') + ' ₽';
+
+    if(lines.length === 0){
+      cartItemsEl.innerHTML = '<p class="cart-empty">Корзина пуста.<br>Добавьте гаджет из каталога.</p>';
+      return;
+    }
+    cartItemsEl.innerHTML = lines.map(function(l){
+      return '<div class="cart-row">' +
+        '<div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">'+ICONS[l.p.cat]+'</svg></div>' +
+        '<div class="info"><h5>'+sanitize(l.p.name)+'</h5>' +
+        '<div class="p">'+l.p.price.toLocaleString('ru-RU')+' ₽</div>' +
+        '<div class="qty">' +
+          '<button data-a="dec" data-id="'+l.p.id+'" aria-label="Уменьшить количество">−</button>' +
+          '<span>'+l.qty+'</span>' +
+          '<button data-a="inc" data-id="'+l.p.id+'" aria-label="Увеличить количество">+</button>' +
+          '<button class="rm-btn" data-a="rm" data-id="'+l.p.id+'">удалить</button>' +
+        '</div></div></div>';
+    }).join('');
+
+    cartItemsEl.querySelectorAll('[data-a]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var id = btn.dataset.id, a = btn.dataset.a;
+        if(a === 'inc') changeQty(id, 1);
+        if(a === 'dec') changeQty(id, -1);
+        if(a === 'rm'){ var cart = Object.assign({}, state.cart); delete cart[id]; setState({cart:cart}); }
+      });
+    });
+  }
+
+  var overlay = document.getElementById('overlay');
+  var drawer = document.getElementById('cartDrawer');
+  function openCart(){ drawer.classList.add('show'); overlay.classList.add('show'); }
+  function closeCart(){ drawer.classList.remove('show'); overlay.classList.remove('show'); }
+  document.getElementById('cartOpenBtn').addEventListener('click', openCart);
+  document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+  overlay.addEventListener('click', function(){ closeCart(); closeModal(); });
+
+  var modalOverlay = document.getElementById('modalOverlay');
+  function openModal(){ if(cartLines().length===0){ showToast('Корзина пуста'); return;} modalOverlay.classList.add('show'); }
+  function closeModal(){ modalOverlay.classList.remove('show'); }
+  document.getElementById('checkoutBtn').addEventListener('click', openModal);
+  modalOverlay.addEventListener('click', function(e){ if(e.target === modalOverlay) closeModal(); });
+
+  document.getElementById('payOptions').addEventListener('change', function(){
+    document.querySelectorAll('.pay-opt').forEach(function(o){
+      o.classList.toggle('selected', o.querySelector('input').checked);
+    });
+  });
+
+  document.getElementById('confirmOrderBtn').addEventListener('click', function(){
+    setState({cart:{}});
+    closeModal(); closeCart();
+    showToast('Заказ оформлен, спасибо!');
+  });
+
+  var toast = document.getElementById('toast');
+  var toastText = document.getElementById('toastText');
+  var toastTimer;
+  function showToast(msg){
+    toastText.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+
+  var burgerBtn = document.getElementById('burgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  burgerBtn.addEventListener('click', function(){
+    var open = mobileMenu.classList.toggle('open');
+    burgerBtn.setAttribute('aria-expanded', open ? 'true':'false');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+  });
+
+  subscribe(renderCatalog);
+  subscribe(renderCart);
+  renderCatalog();
+  renderCart();
+})();
+</script>
+</body>
+</html>
